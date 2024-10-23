@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WebRTC Signaling Server</title>
+</head>
+<body>
+  <h1>WebRTC Signaling Server</h1>
+  <textarea id="messages" rows="10" cols="30" placeholder="Messages will appear here..."></textarea>
+  <br>
+  <input type="text" id="messageInput" placeholder="Type a message...">
+  <button id="sendMessage">Send</button>
+
+  <script>
+    const ws = new WebSocket(`ws://${window.location.host}`);
+    const messages = document.getElementById('messages');
+    const messageInput = document.getElementById('messageInput');
+    const sendMessage = document.getElementById('sendMessage');
+
+    ws.onmessage = (event) => {
+      messages.value += `\n${event.data}`;
+    };
+
+    sendMessage.onclick = () => {
+      const message = messageInput.value;
+      ws.send(message);
+      messageInput.value = '';
+    };
+  </script>
+</body>
+</html>
