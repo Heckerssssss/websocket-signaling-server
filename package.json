@@ -1,12 +1,16 @@
 {
   "name": "websocket-signaling-server",
   "version": "1.0.0",
-  "main": "your_server.js",
+  "description": "A signaling server for WebRTC using WebSocket.",
+  "main": "index.js",
   "scripts": {
-    "start": "node your_server.js"
+    "start": "node index.js"
   },
   "dependencies": {
-    "express": "^4.x.x",
-    "ws": "^8.x.x" // or any other dependencies you have
-  }
+    "ws": "^8.0.0"
+  },
+  "devDependencies": {},
+  "keywords": ["webrtc", "signaling", "websocket"],
+  "author": "Your Name",
+  "license": "ISC"
 }
